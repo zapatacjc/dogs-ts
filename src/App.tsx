@@ -33,7 +33,9 @@ export default function App() {
   useEffect(() => {
     if (searchInput) {
       const filterResult = dogList.filter((dog) => {
-        return dog.includes(searchInput);
+        return dog
+          .toLocaleUpperCase()
+          .includes(searchInput.toLocaleUpperCase());
       });
       setFilteredDogsList(filterResult);
     } else {
